@@ -3,7 +3,7 @@
 
 ## 安装
 ```angular2
-$ composer require eddie\weather -vvv
+$ composer require eddietest123\weather -vvv
 ```
 
 ## 配置
