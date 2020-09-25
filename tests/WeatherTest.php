@@ -1,13 +1,22 @@
 <?php
 
+/*
+ * This file is part of the overtrue/weather.
+ *
+ * (c) overtrue <i@overtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Eddie\Weather\Tests;
 
 use Eddie\Weather\Exceptions\HttpException;
-use Eddie\Weather\Weather;
 use Eddie\Weather\Exceptions\InvalidArgumentException;
+use Eddie\Weather\Weather;
+use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Client;
 use Mockery\Matcher\AnyArgs;
 use PHPUnit\Framework\TestCase;
 
@@ -40,11 +49,11 @@ class WeatherTest extends TestCase
         // 指定将会产生的行为 （在后续的测试中将会按下面的参数来调用）
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [
             'query' => [
-                'key' => 'mock-key',
-                'city' => '深圳',
-                'output' => 'json',
+                'key'        => 'mock-key',
+                'city'       => '深圳',
+                'output'     => 'json',
                 'extensions' => 'base',
-            ]
+            ],
         ])->andReturn($response);
 
         // 将 'getHttpClient' 方法替换为上面创建的http client为返回值的模拟方法
@@ -59,10 +68,10 @@ class WeatherTest extends TestCase
         $client = \Mockery::mock(Client::class);
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [
             'query' => [
-                'key' => 'mock-key',
-                'city' => '深圳',
+                'key'        => 'mock-key',
+                'city'       => '深圳',
                 'extensions' => 'all',
-                'output' => 'xml',
+                'output'     => 'xml',
             ],
         ])->andReturn($response);
 

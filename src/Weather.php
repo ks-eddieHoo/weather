@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the overtrue/weather.
+ *
+ * (c) overtrue <i@overtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Eddie\Weather;
 
 use Eddie\Weather\Exceptions\HttpException;
@@ -43,18 +52,18 @@ class Weather
         $url = $this->url;
 
         if (!in_array(strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
         if (!in_array(strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
 
         $query = array_filter([
-            'key' => $this->key,
-            'city' => $city,
-            'output' => $format,
-            'extensions' =>  $type,
+            'key'        => $this->key,
+            'city'       => $city,
+            'output'     => $format,
+            'extensions' => $type,
         ]);
 
         try {
@@ -67,8 +76,4 @@ class Weather
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
     }
-
-
-
-
 }
