@@ -1,6 +1,8 @@
 # Weather
 基于[高德开放平台](https://lbs.amap.com/dev/id/newuser)的PHP天气信息组件
 
+[![Build Status](https://travis-ci.org/ks-eddieHoo/weather.svg?branch=master)](https://travis-ci.org/ks-eddieHoo/weather)
+
 ## 安装
 ```angular2
 $ composer require eddietest123\weather -vvv
