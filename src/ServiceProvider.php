@@ -28,5 +28,4 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         return [Weather::class, 'weather'];
     }
-
 }
