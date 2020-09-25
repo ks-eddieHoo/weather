@@ -49,9 +49,9 @@ class WeatherTest extends TestCase
         // 指定将会产生的行为 （在后续的测试中将会按下面的参数来调用）
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [
             'query' => [
-                'key'        => 'mock-key',
-                'city'       => '深圳',
-                'output'     => 'json',
+                'key' => 'mock-key',
+                'city' => '深圳',
+                'output' => 'json',
                 'extensions' => 'base',
             ],
         ])->andReturn($response);
@@ -68,10 +68,10 @@ class WeatherTest extends TestCase
         $client = \Mockery::mock(Client::class);
         $client->allows()->get('https://restapi.amap.com/v3/weather/weatherInfo', [
             'query' => [
-                'key'        => 'mock-key',
-                'city'       => '深圳',
+                'key' => 'mock-key',
+                'city' => '深圳',
                 'extensions' => 'all',
-                'output'     => 'xml',
+                'output' => 'xml',
             ],
         ])->andReturn($response);
 
